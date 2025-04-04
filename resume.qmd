@@ -1,0 +1,9 @@
+---
+title: "Resume"
+
+---
+
+{{< pdf Resume/Resume1_final.docx-2.pdf
+width=100% height=800 >}}
+
+About this site

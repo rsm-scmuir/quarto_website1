@@ -1,0 +1,19 @@
+---
+title: "Scotland's Website"
+image: "Resume/IMG_0846.jpg"
+about:
+    template: jolla
+    links:
+      - icon: envelope
+        href: scotlandmuir@gmail.com
+      - icon: linkedin
+        href: https://www.linkedin.com/in/
+
+        
+
+
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
