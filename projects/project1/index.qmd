@@ -3,4 +3,5 @@ title: "My Projects"
 listing:
   contents: projects1  # <-- the sub-directory with blog content
   type: grid          # <-- my preferred layout type
+  sort: "date desc"
 ---
