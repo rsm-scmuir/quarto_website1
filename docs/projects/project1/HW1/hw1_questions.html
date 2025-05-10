@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Scotland Muir">
-<meta name="dcterms.date" content="2025-05-07">
+<meta name="dcterms.date" content="2025-05-09">
 
 <title>A Replication of Karlan and List (2007) – Scotland’s Website</title>
 <style>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 7, 2025</p>
+      <p class="date">May 9, 2025</p>
     </div>
   </div>
   
@@ -450,7 +450,7 @@ Variable Definitions
 </div>
 </div>
 </div>
-<div id="5b7a64e3" class="cell" data-execution_count="1">
+<div id="928759dc" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_stata(<span class="st">"/home/jovyan/Desktop/quarto_website1/projects/project1/HW1/karlan_list_2007.dta"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio1'</span>] <span class="op">=</span> (df[<span class="st">'ratio'</span>] <span class="op">==</span> <span class="dv">1</span>).astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -459,7 +459,7 @@ Variable Definitions
 <section id="balance-test" class="level3">
 <h3 class="anchored" data-anchor-id="balance-test">Balance Test</h3>
 <p>As an ad hoc test of the randomization mechanism, I provide a series of tests that compare aspects of the treatment and control groups to assess whether they are statistically significantly different from one another.</p>
-<div id="07e3e9ed" class="cell" data-execution_count="2">
+<div id="aa8e3cb2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -541,7 +541,7 @@ Regression: coef = -157.925, p = 0.4583</code></pre>
 <section id="charitable-contribution-made" class="level3">
 <h3 class="anchored" data-anchor-id="charitable-contribution-made">Charitable Contribution Made</h3>
 <p>First, I analyze whether matched donations lead to an increased response rate of making a donation.</p>
-<div id="7004e590" class="cell" data-execution_count="3">
+<div id="28519e41" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>group_totals <span class="op">=</span> df.groupby(<span class="st">'treatment'</span>)[<span class="st">'amount'</span>].<span class="bu">sum</span>()</span>
@@ -563,7 +563,7 @@ Regression: coef = -157.925, p = 0.4583</code></pre>
 </div>
 </div>
 </div>
-<div id="455739a6" class="cell" data-execution_count="4">
+<div id="1206861d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>control_gave <span class="op">=</span> df[df[<span class="st">'treatment'</span>] <span class="op">==</span> <span class="dv">0</span>][<span class="st">'gave'</span>].dropna()</span>
@@ -576,7 +576,7 @@ Regression: coef = -157.925, p = 0.4583</code></pre>
 </div>
 </div>
 <p>The t-test shows a statistically significant difference in donation rates between the treatment and control groups (t = 3.209, p = 0.0013), supporting the hypothesis that offering a matching donation increases the likelihood of giving. This suggests that people are more inclined to donate when they perceive their contribution to have greater impact, highlighting how behavioral cues like matching grants can effectively nudge charitable behavior.</p>
-<div id="97829a52" class="cell" data-execution_count="5">
+<div id="32825776" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(<span class="st">'gave ~ treatment'</span>, data<span class="op">=</span>df).fit()</span>
@@ -587,8 +587,8 @@ Regression: coef = -157.925, p = 0.4583</code></pre>
 Dep. Variable:                   gave   R-squared:                       0.000
 Model:                            OLS   Adj. R-squared:                  0.000
 Method:                 Least Squares   F-statistic:                     9.618
-Date:                Wed, 07 May 2025   Prob (F-statistic):            0.00193
-Time:                        23:52:59   Log-Likelihood:                 26630.
+Date:                Fri, 09 May 2025   Prob (F-statistic):            0.00193
+Time:                        17:46:03   Log-Likelihood:                 26630.
 No. Observations:               50083   AIC:                        -5.326e+04
 Df Residuals:                   50081   BIC:                        -5.324e+04
 Df Model:                           1                                         
@@ -614,7 +614,7 @@ Notes:
 <section id="differences-between-match-rates" class="level3">
 <h3 class="anchored" data-anchor-id="differences-between-match-rates">Differences between Match Rates</h3>
 <p>Next, I assess the effectiveness of different sizes of matched donations on the response rate.</p>
-<div id="53720ffa" class="cell" data-execution_count="6">
+<div id="b50dc60a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> df[df[<span class="st">'ratio'</span>] <span class="op">==</span> <span class="dv">1</span>][<span class="st">'gave'</span>]</span>
@@ -644,7 +644,7 @@ TtestResult(statistic=0.05011581369764474, pvalue=0.9600305476940865, df=22260.8
 <section id="interpretation" class="level4">
 <h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
 <p>my results show no statistically significant difference in donation rates between any of the match ratios tested. In other words, increasing the match ratio from 1:1 to 2:1 or 3:1 did not make people more likely to donate.</p>
-<div id="9163b709" class="cell" data-execution_count="7">
+<div id="4d09d8a2" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> smf.ols(<span class="st">'gave ~ ratio1 + ratio2 + ratio3'</span>, data<span class="op">=</span>df).fit()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -654,8 +654,8 @@ TtestResult(statistic=0.05011581369764474, pvalue=0.9600305476940865, df=22260.8
 Dep. Variable:                   gave   R-squared:                       0.000
 Model:                            OLS   Adj. R-squared:                  0.000
 Method:                 Least Squares   F-statistic:                     3.665
-Date:                Wed, 07 May 2025   Prob (F-statistic):             0.0118
-Time:                        23:52:59   Log-Likelihood:                 26630.
+Date:                Fri, 09 May 2025   Prob (F-statistic):             0.0118
+Time:                        17:46:03   Log-Likelihood:                 26630.
 No. Observations:               50083   AIC:                        -5.325e+04
 Df Residuals:                   50079   BIC:                        -5.322e+04
 Df Model:                           3                                         
@@ -679,7 +679,7 @@ Notes:
 </div>
 </div>
 <p>The regression shows that 2:1 and 3:1 match ratios significantly increase donation rates compared to the base group. However, their effects are nearly identical, suggesting no added benefit from raising the match beyond 2:1. This supports the paper’s conclusion that while matching boosts giving, higher ratios don’t lead to more donations.</p>
-<div id="05c8f01e" class="cell" data-execution_count="8">
+<div id="a891ef31" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>coef_r2 <span class="op">=</span> model.params.get(<span class="st">'ratio2'</span>, <span class="dv">0</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>coef_r3 <span class="op">=</span> model.params.get(<span class="st">'ratio3'</span>, <span class="dv">0</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Difference 2:1 vs 1:1: </span><span class="sc">{</span>coef_r2<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
@@ -698,7 +698,7 @@ Difference 3:1 vs 2:1: 0.0001</code></pre>
 <section id="size-of-charitable-contribution" class="level3">
 <h3 class="anchored" data-anchor-id="size-of-charitable-contribution">Size of Charitable Contribution</h3>
 <p>In this subsection, I analyze the effect of the size of matched donation on the size of the charitable contribution.</p>
-<div id="980e3778" class="cell" data-execution_count="9">
+<div id="d8c910ac" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> ttest_ind</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -711,7 +711,7 @@ Difference 3:1 vs 2:1: 0.0001</code></pre>
 </div>
 </div>
 <p>The t-test shows a small difference in donation amounts between the treatment and control groups, with the treatment group giving slightly more on average. However, the result is not statistically significant (p = 0.0551), meaning we cannot confidently conclude that the treatment had an effect on how much people donated.</p>
-<div id="e51076a1" class="cell" data-execution_count="10">
+<div id="d20b9db3" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_donors <span class="op">=</span> df[df[<span class="st">'amount'</span>] <span class="op">&gt;</span> <span class="dv">0</span>]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>c_amt <span class="op">=</span> df_donors[df_donors[<span class="st">'treatment'</span>] <span class="op">==</span> <span class="dv">0</span>][<span class="st">'amount'</span>]</span>
@@ -728,8 +728,8 @@ Difference 3:1 vs 2:1: 0.0001</code></pre>
 Dep. Variable:                 amount   R-squared:                       0.000
 Model:                            OLS   Adj. R-squared:                 -0.001
 Method:                 Least Squares   F-statistic:                    0.3374
-Date:                Wed, 07 May 2025   Prob (F-statistic):              0.561
-Time:                        23:53:00   Log-Likelihood:                -5326.8
+Date:                Fri, 09 May 2025   Prob (F-statistic):              0.561
+Time:                        17:46:03   Log-Likelihood:                -5326.8
 No. Observations:                1034   AIC:                         1.066e+04
 Df Residuals:                    1032   BIC:                         1.067e+04
 Df Model:                           1                                         
@@ -751,7 +751,7 @@ Notes:
 </div>
 </div>
 <p>The regression shows that among those who donated, individuals in the treatment group gave about $1.67 less than those in the control group, but this difference is not statistically significant (p = 0.561). This suggests that while matching offers increase the likelihood of donating, they do not affect the donation amount once a person chooses to give. Therefore, we cannot draw a causal conclusion about the treatment’s impact on contribution size.</p>
-<div id="6e4e17bb" class="cell" data-execution_count="11">
+<div id="439389e0" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -792,7 +792,7 @@ Notes:
 <p>Further suppose that the true distribution of respondents who do get a charitable donation match of any size is Bernoulli with probability p=0.022 that a donation is made.</p>
 <section id="law-of-large-numbers" class="level3">
 <h3 class="anchored" data-anchor-id="law-of-large-numbers">Law of Large Numbers</h3>
-<div id="cfffd070" class="cell" data-execution_count="12">
+<div id="2b5a0113" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -831,7 +831,7 @@ Notes:
 </section>
 <section id="central-limit-theorem" class="level3">
 <h3 class="anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h3>
-<div id="a7746c5c" class="cell" data-execution_count="13">
+<div id="44f9c501" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
