@@ -7,7 +7,6 @@ engine: python
 
 
 
-
 ## 1. K-Means
 This section implements the K-means clustering algorithm from scratch and applies it to the Palmer Penguins dataset using bill length and flipper length measurements. We visualize the algorithm's step-by-step evolution, compare our custom implementation with sklearn's built-in function, and evaluate clustering performance using within-cluster sum of squares (WCSS) and silhouette analysis. The analysis determines that k=3 is optimal, which aligns perfectly with the three actual penguin species in the dataset (Adelie, Chinstrap, and Gentoo).
 
