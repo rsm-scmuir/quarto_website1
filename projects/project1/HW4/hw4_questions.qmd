@@ -5,7 +5,7 @@ date: June 10, 2025
 engine: python
 ---
 
-_todo: do two analyses.  Do one of either 1a or 1b, AND one of either 2a or 2b._
+
 
 
 ## 1. K-Means

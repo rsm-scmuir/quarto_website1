@@ -193,11 +193,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>todo: do two analyses. Do one of either 1a or 1b, AND one of either 2a or 2b.</em></p>
 <section id="k-means" class="level2">
 <h2 class="anchored" data-anchor-id="k-means">1. K-Means</h2>
 <p>This section implements the K-means clustering algorithm from scratch and applies it to the Palmer Penguins dataset using bill length and flipper length measurements. We visualize the algorithm’s step-by-step evolution, compare our custom implementation with sklearn’s built-in function, and evaluate clustering performance using within-cluster sum of squares (WCSS) and silhouette analysis. The analysis determines that k=3 is optimal, which aligns perfectly with the three actual penguin species in the dataset (Adelie, Chinstrap, and Gentoo).</p>
-<div id="1bd43ff0" class="cell" data-execution_count="1">
+<div id="d2b7b13f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -228,7 +227,7 @@ First few rows of data:
 4  Adelie            39.3                190</code></pre>
 </div>
 </div>
-<div id="b560cba7" class="cell" data-execution_count="2">
+<div id="0e7e8641" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> KMeansFromScratch:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k<span class="op">=</span><span class="dv">3</span>, max_iters<span class="op">=</span><span class="dv">100</span>, random_state<span class="op">=</span><span class="dv">42</span>):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
@@ -300,7 +299,7 @@ First few rows of data:
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.labels_ <span class="op">=</span> labels</span>
 <span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="34c8c49c" class="cell" data-execution_count="3">
+<div id="0bbd87cf" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_kmeans_evolution(kmeans_model, X, save_steps<span class="op">=</span><span class="va">True</span>):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Plot the evolution of K-means algorithm step by step"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    n_steps <span class="op">=</span> <span class="bu">len</span>(kmeans_model.history[<span class="st">'centroids'</span>])</span>
@@ -353,7 +352,7 @@ First few rows of data:
 <span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    plt.suptitle(<span class="st">'K-Means Algorithm Evolution'</span>, fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
 <span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d4410e55" class="cell" data-execution_count="4">
+<div id="20059d1f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">60</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"TODO 1a: K-MEANS ALGORITHM IMPLEMENTATION"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">60</span>)</span>
@@ -434,7 +433,7 @@ Converged after 10 iterations!</code></pre>
 </div>
 </div>
 </div>
-<div id="f4b26607" class="cell" data-execution_count="5">
+<div id="fe5f9c4d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> 1b: Calculate WCSS and Silhouette Scores for different k values</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> silhouette_score</span>
@@ -498,7 +497,7 @@ k=6: WCSS=6326.31, Silhouette Score=0.414
 k=7: WCSS=5257.09, Silhouette Score=0.431</code></pre>
 </div>
 </div>
-<div id="42c3cd9b" class="cell" data-execution_count="6">
+<div id="b925b50c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results for both metrics</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -544,7 +543,7 @@ k=7: WCSS=5257.09, Silhouette Score=0.431</code></pre>
 </div>
 </div>
 </div>
-<div id="f035ea68" class="cell" data-execution_count="7">
+<div id="b5c71bbc" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Determine optimal k and provide recommendations</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">60</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"OPTIMAL K ANALYSIS"</span>)</span>
@@ -608,7 +607,7 @@ The 'right' number of clusters for Palmer Penguins:
 <section id="k-nearest-neighbors" class="level2">
 <h2 class="anchored" data-anchor-id="k-nearest-neighbors">2. K Nearest Neighbors</h2>
 <p>This section implements the K-Nearest Neighbors algorithm from scratch using a synthetic dataset with a non-linear wiggly boundary defined by a sine function. We generate training and test datasets, visualize the data with colored points separated by the decision boundary, and test different k values (1-30) to find the optimal number of neighbors. The analysis reveals that k=1 provides the best performance with 95% accuracy, demonstrating KNN’s ability to capture complex local patterns in the data.</p>
-<div id="69893e01" class="cell" data-execution_count="8">
+<div id="aab1f523" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> 2a: Generate Synthetic Dataset for K-Nearest Neighbors</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -683,7 +682,7 @@ Class 0: 49 points
 Class 1: 51 points</code></pre>
 </div>
 </div>
-<div id="a5a40054" class="cell" data-execution_count="9">
+<div id="324a6e2e" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> 2b: Plot the synthetic dataset with the wiggly boundary</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_dataset_with_boundary(data, title<span class="op">=</span><span class="st">"Synthetic Dataset with Wiggly Boundary"</span>):</span>
@@ -752,7 +751,7 @@ TODO 2b: PLOTTING THE DATASET
 • The boundary creates a non-linear separation between classes</code></pre>
 </div>
 </div>
-<div id="b1d4f9ca" class="cell" data-execution_count="10">
+<div id="e07367d6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> 2c: Generate a test dataset with 100 points using different seed</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">50</span>)</span>
@@ -862,7 +861,7 @@ random distributions due to different seeds. This allows us to test
 how well our KNN algorithm generalizes to unseen data.</code></pre>
 </div>
 </div>
-<div id="e9a0a462" class="cell" data-execution_count="11">
+<div id="0768c987" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> 2d: Implement KNN algorithm by hand</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -977,7 +976,7 @@ Predictions match: True
 ✓ Custom implementation verified against sklearn!</code></pre>
 </div>
 </div>
-<div id="03505836" class="cell" data-execution_count="12">
+<div id="699da50f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co"> 2e: Run KNN for k=1,...,k=30 and plot accuracy results</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">60</span>)</span>
