@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your Name">
-<meta name="dcterms.date" content="2025-05-28">
+<meta name="dcterms.date" content="2025-06-10">
 
 <title>Poisson Regression Examples – Scotland’s Website</title>
 <style>
@@ -222,7 +222,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 28, 2025</p>
+      <p class="date">June 10, 2025</p>
     </div>
   </div>
   
@@ -243,7 +243,7 @@ window.Quarto = {
 </section>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">Data</h3>
-<div id="71cb4446" class="cell" data-execution_count="1">
+<div id="e671847c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -343,7 +343,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="8f340832" class="cell" data-execution_count="2">
+<div id="46ecfedd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -443,7 +443,7 @@ Name: age, dtype: float64</code></pre>
 <p>[ f(Y_i|) = ]</p>
 <p>The log-likelihood function for a sample of size ( n ) is:</p>
 <p>[ () = _{i=1}^n ( -+ Y_i () - (Y_i!) ) ]</p>
-<div id="a9d5797b" class="cell" data-execution_count="3">
+<div id="c4ed0ef7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> gammaln  <span class="co"># stable log-factorial</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -452,7 +452,7 @@ Name: age, dtype: float64</code></pre>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span>np.inf</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>(<span class="op">-</span>lambda_ <span class="op">+</span> Y <span class="op">*</span> np.log(lambda_) <span class="op">-</span> gammaln(Y <span class="op">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5bd603cb" class="cell" data-execution_count="4">
+<div id="19f0d4ce" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> blueprinty[<span class="st">"patents"</span>].values</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>lambdas <span class="op">=</span> np.linspace(<span class="fl">0.1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>log_liks <span class="op">=</span> [poisson_loglikelihood(l, Y) <span class="cf">for</span> l <span class="kw">in</span> lambdas]</span>
@@ -477,7 +477,7 @@ Name: age, dtype: float64</code></pre>
 <p>Taking the derivative with respect to λ and setting it to zero:</p>
 <p>[ = -n + Y_i = 0 _{} = Y_i = {Y} ]</p>
 <p>the MLE of λ must be the sample mean.</p>
-<div id="cc1a2f8f" class="cell" data-execution_count="5">
+<div id="020ae9cf" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize_scalar</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize_scalar(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> l: <span class="op">-</span>poisson_loglikelihood(l, Y),</span>
@@ -494,7 +494,7 @@ Name: age, dtype: float64</code></pre>
 <section id="estimation-of-poisson-regression-model" class="level3">
 <h3 class="anchored" data-anchor-id="estimation-of-poisson-regression-model">Estimation of Poisson Regression Model</h3>
 <p>Next, we extend our simple Poisson model to a Poisson Regression Model such that <span class="math inline">\(Y_i = \text{Poisson}(\lambda_i)\)</span> where <span class="math inline">\(\lambda_i = \exp(X_i'\beta)\)</span>. The interpretation is that the success rate of patent awards is not constant across all firms (<span class="math inline">\(\lambda\)</span>) but rather is a function of firm characteristics <span class="math inline">\(X_i\)</span>. Specifically, we will use the covariates age, age squared, region, and whether the firm is a customer of Blueprinty.</p>
-<div id="db5a9f81" class="cell" data-execution_count="6">
+<div id="df9c5b32" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> gammaln</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -505,7 +505,7 @@ Name: age, dtype: float64</code></pre>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span>np.inf</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.<span class="bu">sum</span>(<span class="op">-</span>lambda_ <span class="op">+</span> Y <span class="op">*</span> np.log(lambda_) <span class="op">-</span> gammaln(Y <span class="op">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="443b2995" class="cell" data-execution_count="7">
+<div id="bf4d06e3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> gammaln</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -551,7 +551,7 @@ age_sq        -0.002976    0.000260
 iscustomer     0.210138    0.028552</code></pre>
 </div>
 </div>
-<div id="677548a3" class="cell" data-execution_count="8">
+<div id="e5f581da" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>blueprinty[<span class="st">"age_sq"</span>] <span class="op">=</span> blueprinty[<span class="st">"age"</span>] <span class="op">**</span> <span class="dv">2</span></span>
@@ -578,8 +578,8 @@ Model:                            GLM   Df Residuals:                     1496
 Model Family:                 Poisson   Df Model:                            3
 Link Function:                    Log   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -3259.6
-Date:                Wed, 28 May 2025   Deviance:                       2146.3
-Time:                        23:35:27   Pearson chi2:                 2.08e+03
+Date:                Tue, 10 Jun 2025   Deviance:                       2146.3
+Time:                        18:13:09   Pearson chi2:                 2.08e+03
 No. Iterations:                     5   Pseudo R-squ. (CS):             0.1342
 Covariance Type:            nonrobust                                         
 ==============================================================================
@@ -593,7 +593,7 @@ x3             0.2101      0.028      7.470      0.000       0.155       0.265
 </div>
 </div>
 <p>The regression results indicate a strong and statistically significant relationship between Blueprinty usage and patent output. Specifically, being a customer of Blueprinty is associated with an approximate 23% increase in the expected number of patents, controlling for age and regional effects. The model also shows a curvilinear effect of firm age: as firms get older, patent activity increases up to a point, after which it begins to taper off. The consistency between the custom MLE estimates and the GLM results validates the model setup and confirms that Blueprinty’s software appears to contribute positively to innovation performance.</p>
-<div id="aa55750b" class="cell" data-execution_count="9">
+<div id="02529f24" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X_0 <span class="op">=</span> X.copy() </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>X_1 <span class="op">=</span> X.copy()  </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -648,7 +648,7 @@ Variable Definitions
 </div>
 </div>
 </div>
-<div id="2d911bd5" class="cell" data-execution_count="10">
+<div id="4a5a7242" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -715,8 +715,8 @@ Model:                            GLM   Df Residuals:                    30150
 Model Family:                 Poisson   Df Model:                            9
 Link Function:                    Log   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:            -5.2418e+05
-Date:                Wed, 28 May 2025   Deviance:                   9.2689e+05
-Time:                        23:35:27   Pearson chi2:                 1.37e+06
+Date:                Tue, 10 Jun 2025   Deviance:                   9.2689e+05
+Time:                        18:13:09   Pearson chi2:                 1.37e+06
 No. Iterations:                    10   Pseudo R-squ. (CS):             0.6839
 Covariance Type:            nonrobust                                         
 =============================================================================================
